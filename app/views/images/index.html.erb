@@ -2,6 +2,7 @@
 <% if @images.any?  %>
   <% @images.each do |image| %>
   <%= link_to image_tag(image.photo.url, class: 'media-object'), image.photo.url, target: '_blank' %>
+  <%= image.name %>
   <%= link_to 'Edit', edit_image_path(image) %>
   <%= link_to 'Delete', image_path(image),
                          :data => {:confirm => "You sure?",

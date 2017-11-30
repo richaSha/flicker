@@ -1,4 +1,5 @@
 class ImagesController < ApplicationController
+
   def index
     if session[:user_id]
       @user = User.find(session[:user_id])
@@ -22,6 +23,7 @@ class ImagesController < ApplicationController
   def new
     @image = Image.new
     @tag = Tag.new
+    @user = User.all
   end
 
   def destroy
@@ -51,6 +53,6 @@ class ImagesController < ApplicationController
   private
 
   def image_params
-      params.require(:image).permit(:photo, :user_id).merge({:user_id => session[:user_id]})
+      params.require(:image).permit(:photo, :user_id, :name).merge({:user_id => session[:user_id]})
   end
 end

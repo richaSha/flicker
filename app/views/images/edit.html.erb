@@ -1,16 +1,15 @@
+
+<div class="container">
+<hr>
 <h1>Edit Image</h1>
 <%= image_tag(@image.photo.url, class: 'media-object') %>
 <hr>
-<%= form_for [@image, @tag] do |form| %>
-  <%= form.label 'Title' %>
-  <%= form.text_field :title, list: "username" %>
-  <datalist id="username">
-    <% @user.each do |person| %>
-      <option value="<%= person.username %>"></option>
-    <% end %>
-  </datalist>
+<%= form_for @image do |form| %>
+  <%= form.label 'Image Title' %>
+  <%= form.text_field :name %>
   <br/>
   <%= form.file_field :photo %>
-  <br/>
-  <%= form.submit "Upload Image" %>
+<br/>
+  <%= form.submit "Edit Image" %>
 <% end %>
+</div>
