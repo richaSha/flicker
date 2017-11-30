@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessor :password
+  has_many :images
   validates_confirmation_of :password
   validates :username, :email_address, :presence => true
   validates_uniqueness_of :email_address
@@ -11,7 +12,7 @@ class User < ActiveRecord::Base
   end
 
   def self.authenticate(email, password)
-    user = User.find_by "email =?", email
+    user = User.find_by "email_address =?", email
     if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
       user
     else

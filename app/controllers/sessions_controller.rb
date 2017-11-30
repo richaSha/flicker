@@ -1,4 +1,11 @@
 class SessionsController < ApplicationController
+
+  def new
+    if session[:user_id]
+      redirect_to "/"
+    end
+  end
+
   def create
     @user = User.authenticate(params[:email], params[:password])
     if @user
