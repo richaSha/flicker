@@ -6,9 +6,9 @@
 <hr>
 <%= form_for @image do |form| %>
   <%= form.label 'Image Title' %>
-  <%= form.text_field :name %>
+  <%= form.text_field :name,  id: "name" %>
   <br/>
-  <%= form.file_field :photo %>
+  <%= form.file_field :photo, id: "photo" %>
 <br/>
   <%= form.submit "Edit Image" %>
 <% end %>

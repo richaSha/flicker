@@ -43,11 +43,10 @@ class ImagesController < ApplicationController
     @image= Image.find(params[:id])
     if @image.update(image_params)
       flash[:notice] = "Image successfully updated!"
-      redirect_to "/"
     else
       flash[:notice] = "Something went wrong.. Please try again..."
-      redirect_to :edit
     end
+    redirect_to "/"
   end
 
   private

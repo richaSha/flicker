@@ -23,4 +23,17 @@ describe User do
     click_button 'Sign Up'
     expect(page).to have_content "There was a problem signing up."
   end
+
+  it 'redirect to home page if user already signed up' do
+    visit root_path
+    click_link 'Sign up'
+    fill_in "email", with: "test@test.com"
+    fill_in "username", with: "test"
+    fill_in "password", with: "123456"
+    fill_in "password_confirmation", with: "123456"
+    click_button 'Sign Up'
+    visit "/signup"
+    expect(page).to have_content "Welcome!"
+  end
+
 end
