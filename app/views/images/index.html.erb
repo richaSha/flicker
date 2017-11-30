@@ -6,11 +6,11 @@
   <%= link_to 'Delete', image_path(image),
                          :data => {:confirm => "You sure?",
                                    :method => "delete"} %>
-  
+
 </div>
   <% end %>
 <% else %>
-  <p>Oops! currently you dont have any Picture.. Please Add new</p>
+  <p>Oops! currently you dont have any pictures.. Please Add new</p>
   <% end %>
 <br/>
 <% if session[:user_id] %>
