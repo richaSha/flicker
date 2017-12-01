@@ -17,6 +17,16 @@ describe Image do
     expect(page).to have_content 'Mt Hood at Sunrise'
   end
 
+  it 'uploads a selected image' do
+    user = FactoryBot.create(:image)
+    visit root_path
+    click_link 'Sign in'
+    fill_in "email_address", with: "richa.shaurabh@gmail.com"
+    fill_in "password", with: "richa123"
+    click_button 'Sign in'
+    expect(page).to have_content "test"
+  end
+
   it 'uploads a selected image without title' do
     visit root_path
     click_link 'Sign up'
